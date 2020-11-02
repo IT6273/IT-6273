@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<script>
+function validateForm() {
+    var feature_1 = document.forms["input_data"]["feature_1"].value;
+    var feature_name_1 = document.forms["input_data"]["feature_1"].name;
+    var feature_2 = document.forms["input_data"]["feature_2"].value;
+    var feature_name_2 = document.forms["input_data"]["feature_2"].name;
+    var feature_3 = document.forms["input_data"]["feature_3"].value;
+    var feature_name_3 = document.forms["input_data"]["feature_3"].name;
+    var feature_4 = document.forms["input_data"]["feature_4"].value;
+    var feature_name_4 = document.forms["input_data"]["feature_4"].name;
+    if (feature_1 < 0) {
+        alert("Please give a valid value for : " + feature_name_1);
+        return false;
+    }
+
+    if (feature_2 < 0) {
+        alert("Please give a valid value for : " + feature_name_2);
+        return false;
+    }
+
+    if (feature_3 < 0) {
+        alert("Please give a valid value for: " + feature_name_3);
+        return false;
+    }
+
+    if (feature_4 < 0) {
+        alert("Please give a valid value for: " + feature_name_4);
+        return false;
+    }
+}
+</script>
+<body>
+    <form name="input_data" action="input_data" onsubmit="return validateForm()" method="post">
+        {% csrf_token %}
+        <br>
+
+        <input type="number" name="feature_1" placeholder="Feature 1"><br>
+		<input type="number" name="feature_2" placeholder="Feature 2"><br>
+		<input type="number" name="feature_3" placeholder="Feature 3"><br>
+		<input type="number" name="feature_4" placeholder="Feature 4"><br><br>
+
+        <input type="submit">
+
+    </form>
+
+    <div>
+        <h4>
+			Predicted Value:
+        </h4>
+    </div>
+
+</body>
+</html>
