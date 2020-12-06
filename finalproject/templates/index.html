@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<script>
+function validateForm() {
+    var CRIM = document.forms["input_data"]["CRIM"].value;
+    var feature_name_1 = document.forms["input_data"]["CRIM"].placeholder;
+    var ZN = document.forms["input_data"]["ZN"].value;
+    var feature_name_2 = document.forms["input_data"]["ZN"].placeholder;
+    var INDUS = document.forms["input_data"]["INDUS"].value;
+    var feature_name_3 = document.forms["input_data"]["INDUS"].placeholder;
+    var CHAS = document.forms["input_data"]["CHAS"].value;
+    var feature_name_4 = document.forms["input_data"]["CHAS"].placeholder;
+	var NOX = document.forms["input_data"]["NOX"].value;
+    var feature_name_5 = document.forms["input_data"]["NOX"].placeholder;
+    var RM = document.forms["input_data"]["RM"].value;
+    var feature_name_6 = document.forms["input_data"]["RM"].placeholder;
+    var AGE = document.forms["input_data"]["AGE"].value;
+    var feature_name_7 = document.forms["input_data"]["AGE"].placeholder;
+    var DIS = document.forms["input_data"]["DIS"].value;
+    var feature_name_8 = document.forms["input_data"]["DIS"].placeholder;
+	var RAD = document.forms["input_data"]["RAD"].value;
+    var feature_name_9 = document.forms["input_data"]["RAD"].placeholder;
+    var TAX = document.forms["input_data"]["TAX"].value;
+    var feature_name_10 = document.forms["input_data"]["TAX"].placeholder;
+    var PTRATIO = document.forms["input_data"]["PTRATIO"].value;
+    var feature_name_11 = document.forms["input_data"]["PTRATIO"].placeholder;
+    var B = document.forms["input_data"]["B"].value;
+    var feature_name_12 = document.forms["input_data"]["B"].placeholder;
+	var LSTAT = document.forms["input_data"]["LSTAT"].value;
+    var feature_name_13 = document.forms["input_data"]["LSTAT"].placeholder;
+    if (CRIM === "") {
+        alert(feature_name_1 + ", should not be empty!");
+        return false;
+    }
+
+    if (ZN === "") {
+        alert(feature_name_2 + ", should not be empty!");
+        return false;
+    }
+
+    if (INDUS === "") {
+        alert(feature_name_3 + ", should not be empty!");
+        return false;
+    }
+
+    if (CHAS === "") {
+        alert(feature_name_4 + ", should not be empty!");
+        return false;
+    }
+}
+</script>
+<style>
+.center {
+    vertical-align: middle;
+    margin: auto;
+    width: 60%;
+    border: 3px solid;
+    padding: 10px;
+}
+</style>
+<body style="background-color:cyan;">
+    <div class="center">
+        <h1>Hello {{name}} {{surname}}</h1>
+        <form name="input_data" method="post" action="prediction" onsubmit="return validateForm()">
+            {% csrf_token %}
+            <br>
+
+            <input type="number" name="CRIM" placeholder="CRIM" step="any"><br>
+            <input type="number" name="ZN" placeholder="ZN" step="any"><br>
+            <input type="number" name="INDUS" placeholder="INDUS" step="any"><br>
+            <input type="number" name="CHAS" placeholder="CHAS" step="any"><br>
+			<input type="number" name="NOX" placeholder="NOX" step="any"><br>
+            <input type="number" name="RM" placeholder="RM" step="any"><br>
+            <input type="number" name="AGE" placeholder="AGE" step="any"><br>
+			<input type="number" name="DIS" placeholder="DIS" step="any"><br>
+            <input type="number" name="RAD" placeholder="RAD" step="any"><br>
+            <input type="number" name="TAX" placeholder="TAX" step="any"><br>
+			<input type="number" name="PTRATIO" placeholder="PTRATIO" step="any"><br>
+            <input type="number" name="B" placeholder="B" step="any"><br>
+            <input type="number" name="LSTAT" placeholder="LSTAT" step="any"><br>
+			<br>
+
+            <input type="submit">
+
+        </form>
+    </div>
+	<div class="center">
+		<ul>
+			<li>CRIM     per capita crime rate by town</li>
+			<li>ZN       proportion of residential land zoned for lots over 25,000 sq.ft.</li>
+			<li>INDUS    proportion of non-retail business acres per town</li>
+			<li>CHAS     Charles River dummy variable (= 1 if tract bounds river; 0 otherwise)</li>
+			<li>NOX      nitric oxides concentration (parts per 10 million)</li>
+			<li>RM       average number of rooms per dwelling</li>
+			<li>AGE      proportion of owner-occupied units built prior to 1940</li>
+			<li>DIS      weighted distances to five Boston employment centres</li>
+			<li>RAD      index of accessibility to radial highways</li>
+			<li>TAX      full-value property-tax rate per $10,000</li>
+			<li>PTRATIO  pupil-teacher ratio by town</li>
+			<li>B        1000(Bk - 0.63)^2 where Bk is the proportion of blacks by town</li>
+			<li>LSTAT    % lower status of the population</li>
+			<li>MEDV     Median value of owner-occupied homes in $1000's</li>
+		</ul>
+	</div>
+</body>
+</html>
